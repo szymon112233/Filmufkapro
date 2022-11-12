@@ -7,5 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 QuestionContent = "Which is more cute?"
+Choice1Valid = false
+Choice2Valid = false
 Choice1 = ExtResource( 3 )
 Choice2 = ExtResource( 2 )
