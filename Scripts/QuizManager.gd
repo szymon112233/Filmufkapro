@@ -6,9 +6,9 @@ export(Array, Resource) var TutorialQuestionsQueue
 export(float) var SpeedMultiplier
 export(NodePath) var PathToMainUI
 
-signal NewQuestionShown(questionIndex)
+signal NewQuestionShown(currentSpeedMultiplier)
 signal BeatPlayed(beatIndex)
-signal AnwserPut(isCorrect, isLeft)
+signal AnwserPut(isCorrect, isLeft, currentSpeedMultiplier)
 signal HealthChanged(health)
 signal GameEnd(isSuccess, score)
 
@@ -72,7 +72,7 @@ func MakeChoice(isLeft: bool):
 		
 func Anwser(isCorrect: bool, isLeft: bool):
 	print(isCorrect)
-	emit_signal("AnwserPut", isCorrect, isLeft)
+	emit_signal("AnwserPut", isCorrect, isLeft, currentSpeedMultiplier)
 	if isCorrect:
 		score += 1
 	else:
@@ -85,7 +85,7 @@ func Anwser(isCorrect: bool, isLeft: bool):
 	
 	isDuringWrongOrCorrectAnim = true
 	# Hardcoded!
-	yield(get_tree().create_timer(2.0), "timeout")
+	yield(get_tree().create_timer(2.0 / currentSpeedMultiplier), "timeout")
 	isDuringWrongOrCorrectAnim = false
 	
 	NextTutorialQuestion()
