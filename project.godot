@@ -8,11 +8,43 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Choice",
+"language": "GDScript",
+"path": "res://Scripts/Choice.gd"
+}, {
+"base": "Node",
+"class": "MainUIManager",
+"language": "GDScript",
+"path": "res://Scripts/MainUIManager.gd"
+}, {
+"base": "Resource",
+"class": "Question",
+"language": "GDScript",
+"path": "res://Scripts/Question.gd"
+}, {
+"base": "Node",
+"class": "QuizManager",
+"language": "GDScript",
+"path": "res://Scripts/QuizManager.gd"
+} ]
+_global_script_class_icons={
+"Choice": "",
+"MainUIManager": "",
+"Question": "",
+"QuizManager": ""
+}
+
 [application]
 
 config/name="Filmufkapro"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/height=920
 
 [gui]
 
