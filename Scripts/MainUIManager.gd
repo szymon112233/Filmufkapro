@@ -8,6 +8,9 @@ export(NodePath) var PathToOption2
 
 var currentQuestion
 
+const EndGameString = "%s \n Score: %s"
+		
+
 func SetupNewQuestion(question: Question):
 	currentQuestion = question
 		
@@ -71,4 +74,8 @@ func _on_QuizManager_HealthChanged(health):
 
 
 func _on_QuizManager_GameEnd(isSuccess, score):
-	pass # Replace with function body.
+	if isSuccess:
+		$EndGamePopup/EndGameLabel.text = EndGameString % ["You win!", score]
+	else:
+		$EndGamePopup/EndGameLabel.text = EndGameString % ["You loose!", score]
+	$EndGamePopup.show()

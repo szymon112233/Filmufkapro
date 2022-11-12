@@ -24,6 +24,7 @@ var CurrentQuestion: Question
 var mainUIManager
 var healthCounter
 var score
+var isDead
 
 var isDuringWrongOrCorrectAnim = false
 
@@ -34,8 +35,13 @@ func _ready():
 	score = 0
 	NextTutorialQuestion()
 
-func _input(event):
-	if isDuringWrongOrCorrectAnim:
+func _input(event):	
+	if event.is_action_released("ui_cancel") && isDead:
+		get_tree().reload_current_scene()
+		return
+		
+
+	if isDead || isDuringWrongOrCorrectAnim:
 		return
 	
 	if event.is_action_released("left_option"):
@@ -72,6 +78,9 @@ func Anwser(isCorrect: bool):
 	else:
 		healthCounter -= 1
 		emit_signal("HealthChanged", healthCounter)
+		if healthCounter <= 0:
+			Die()
+			return
 		
 	
 	isDuringWrongOrCorrectAnim = true
@@ -85,7 +94,9 @@ func Finish():
 	emit_signal("GameEnd", true, score)
 	
 func Die():
+	isDead = true
 	emit_signal("GameEnd", false, score)
+	
 
 func _process(delta):
 	if (beatCounter > LastBeatIndex):
