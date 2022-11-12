@@ -1,14 +1,16 @@
 extends Node
 class_name MainUIManager
 
-export(NodePath) var PathToQuestionLabel
+export(NodePath) var PathToQuestionLabel1
+export(NodePath) var PathToQuestionLabel2
 export(NodePath) var PathToOption1
 export(NodePath) var PathToOption2
 
+var currentQuestion
+
 func SetupNewQuestion(question: Question):
-	var questionLabel = get_node(PathToQuestionLabel) as Label
-	questionLabel.text = question.QuestionContent
-	
+	currentQuestion = question
+		
 	var option1Image = get_node(PathToOption1).get_node("ColorRect/TextureRect") as TextureRect
 	var option1Label = get_node(PathToOption1).get_node("ColorRect/Label") as Label
 	option1Image.texture = question.Choice1.Icon
@@ -19,7 +21,8 @@ func SetupNewQuestion(question: Question):
 	option2Image.texture = question.Choice2.Icon
 	option2Label.text = question.Choice2.Name
 	
-	get_node(PathToQuestionLabel).hide()
+	get_node(PathToQuestionLabel1).hide()
+	get_node(PathToQuestionLabel2).hide()
 	get_node(PathToOption1).hide()
 	get_node(PathToOption2).hide()
 
@@ -29,7 +32,23 @@ func _on_QuizManager_BeatPlayed(beatIndex):
 	
 	match beatIndex:
 		0:
-			get_node(PathToQuestionLabel).show()
+			var words = currentQuestion.QuestionContent.split(" ")
+			var questionLabel1 = get_node(PathToQuestionLabel1) as Label
+			questionLabel1.text = words[0]
+			get_node(PathToQuestionLabel1).show()
+		1:
+			var words = currentQuestion.QuestionContent.split(" ")
+			var questionLabel1 = get_node(PathToQuestionLabel1) as Label
+			questionLabel1.text = words[0] + " " + words[1]
+		2:
+			var words = currentQuestion.QuestionContent.split(" ")
+			var questionLabel2 = get_node(PathToQuestionLabel2) as Label
+			questionLabel2.text = words[2].substr(0, words[2].length() - 1)
+			get_node(PathToQuestionLabel2).show()
+		3:
+			var words = currentQuestion.QuestionContent.split(" ")
+			var questionLabel2 = get_node(PathToQuestionLabel2) as Label
+			questionLabel2.text = words[2]
 		4:
 			get_node(PathToOption1).show()
 		5:
