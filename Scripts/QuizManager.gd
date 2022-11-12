@@ -39,6 +39,7 @@ func NextTutorialQuestion():
 	mainUIManager.SetupNewQuestion(CurrentQuestion)
 	emit_signal("NewQuestionShown")
 	beatCounter = 0
+	timeCounter = targetInterval
 
 func MakeChoice(isLeft: bool):
 	if isLeft:
