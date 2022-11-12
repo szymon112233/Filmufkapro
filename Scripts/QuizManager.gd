@@ -7,13 +7,20 @@ export(Array, Resource) var TutorialQuestionsQueue
 export(NodePath) var PathToMainUI
 
 signal NewQuestionShown
+signal BeatPlayed(beatIndex)
+
+const DefaultBPM = 90.0
+const LastBeatIndex = 12 #Last beat is "Game over" ping
+var targetInterval = 60.0 / DefaultBPM
+var timeCounter = targetInterval
+var beatCounter = 0
 
 var CurrentQuestionIndex
 var CurrentQuestion: Question
 var mainUIManager
 
 func _ready():
-	mainUIManager = get_node(PathToMainUI).get_node("MainUIManager") as MainUIManager
+	mainUIManager = get_node(PathToMainUI) as MainUIManager
 	CurrentQuestionIndex = -1;
 	NextTutorialQuestion()
 
@@ -31,6 +38,7 @@ func NextTutorialQuestion():
 	CurrentQuestion = (TutorialQuestionsQueue[CurrentQuestionIndex] as Question)
 	mainUIManager.SetupNewQuestion(CurrentQuestion)
 	emit_signal("NewQuestionShown")
+	beatCounter = 0
 
 func MakeChoice(isLeft: bool):
 	if isLeft:
@@ -46,6 +54,12 @@ func Anwser(isCorrect: bool):
 func Finish():
 	print("Koniec")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if (beatCounter > LastBeatIndex):
+		return
+	
+	timeCounter += delta
+	if timeCounter >= targetInterval:
+		emit_signal("BeatPlayed", beatCounter)
+		beatCounter += 1
+		timeCounter -= targetInterval

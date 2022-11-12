@@ -15,4 +15,5 @@ PathToMainUI = NodePath("../Main UI")
 
 [node name="AudioManager" parent="." instance=ExtResource( 4 )]
 
+[connection signal="BeatPlayed" from="QuizManager" to="Main UI" method="_on_QuizManager_BeatPlayed"]
 [connection signal="NewQuestionShown" from="QuizManager" to="AudioManager" method="_on_QuizManager_NewQuestionShown"]

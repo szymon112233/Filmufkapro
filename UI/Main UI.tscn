@@ -12,6 +12,10 @@ font_data = ExtResource( 2 )
 [node name="Main UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
+PathToQuestionLabel = NodePath("Question Text")
+PathToOption1 = NodePath("HBoxContainer/Option 1 UI")
+PathToOption2 = NodePath("HBoxContainer/Option 2 UI")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -43,12 +47,6 @@ valign = 1
 __meta__ = {
 "_editor_description_": ""
 }
-
-[node name="MainUIManager" type="Node" parent="."]
-script = ExtResource( 3 )
-PathToQuestionLabel = NodePath("../Question Text")
-PathToOption1 = NodePath("../HBoxContainer/Option 1 UI")
-PathToOption2 = NodePath("../HBoxContainer/Option 2 UI")
 
 [node name="LabelScore" type="Label" parent="."]
 margin_right = 40.0
