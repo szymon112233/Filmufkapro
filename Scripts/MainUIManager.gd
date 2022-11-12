@@ -8,8 +8,16 @@ export(NodePath) var PathToOption2
 
 var currentQuestion
 
+var originalOptionUIColor
+
+func _ready():
+	originalOptionUIColor = (get_node(PathToOption1).get_node("ColorRect") as ColorRect).color
+
 func SetupNewQuestion(question: Question):
 	currentQuestion = question
+	
+	(get_node(PathToOption1).get_node("ColorRect") as ColorRect).color = originalOptionUIColor
+	(get_node(PathToOption2).get_node("ColorRect") as ColorRect).color = originalOptionUIColor
 		
 	var option1Image = get_node(PathToOption1).get_node("ColorRect/TextureRect") as TextureRect
 	var option1Label = get_node(PathToOption1).get_node("ColorRect/Label") as Label
@@ -57,11 +65,23 @@ func _on_QuizManager_BeatPlayed(beatIndex):
 			get_node(PathToOption2).show()
 
 
-func _on_QuizManager_AnwserPut(isCorrect):
+func _on_QuizManager_AnwserPut(isCorrect, isLeft):
+	var chosenChoicePath
+	var colorToSet
+	
+	if isLeft:
+		chosenChoicePath = PathToOption1
+	else:
+		chosenChoicePath = PathToOption2
+	
 	if isCorrect:
 		$CorrectAnimPlayer.play("CorrectAnim")
+		colorToSet = Color.lawngreen
 	else:
 		$CorrectAnimPlayer.play("WrongAnim")
+		colorToSet = Color.crimson
+		
+	(get_node(chosenChoicePath).get_node("ColorRect") as ColorRect).color = colorToSet
 
 
 func _on_QuizManager_HealthChanged(health):

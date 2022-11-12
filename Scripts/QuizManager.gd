@@ -8,7 +8,7 @@ export(NodePath) var PathToMainUI
 
 signal NewQuestionShown(questionIndex)
 signal BeatPlayed(beatIndex)
-signal AnwserPut(isCorrect)
+signal AnwserPut(isCorrect, isLeft)
 signal HealthChanged(health)
 signal GameEnd(isSuccess, score)
 
@@ -59,14 +59,14 @@ func NextTutorialQuestion():
 
 func MakeChoice(isLeft: bool):
 	if isLeft:
-		Anwser(CurrentQuestion.Choice1Valid)
+		Anwser(CurrentQuestion.Choice1Valid, isLeft)
 	else:
-		Anwser(CurrentQuestion.Choice2Valid)
+		Anwser(CurrentQuestion.Choice2Valid, isLeft)
 		
 		
-func Anwser(isCorrect: bool):
+func Anwser(isCorrect: bool, isLeft: bool):
 	print(isCorrect)
-	emit_signal("AnwserPut", isCorrect)
+	emit_signal("AnwserPut", isCorrect, isLeft)
 	if isCorrect:
 		score += 1
 	else:
