@@ -1,0 +1,70 @@
+[gd_resource type="Animation" load_steps=2 format=2]
+
+[ext_resource path="res://AudioFiles/QuizBeat.wav" type="AudioStream" id=1]
+
+[resource]
+resource_name = "MainBeat"
+length = 7.97
+loop = true
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("QuizManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.668005, 1.32991, 2, 2.66382, 3.33203, 3.99548, 4.66624, 5.33521, 6.00002, 6.66472, 7.32803 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+}, {
+"args": [  ],
+"method": "Beat"
+} ]
+}

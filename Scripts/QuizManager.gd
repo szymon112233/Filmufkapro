@@ -7,7 +7,7 @@ export(float) var SpeedMultiplier
 export(NodePath) var PathToMainUI
 
 signal NewQuestionShown(questionIndex)
-signal BeatPlayed(beatIndex)
+signal BeatPlayed()
 signal AnwserPut(isCorrect, isLeft)
 signal HealthChanged(health)
 signal GameEnd(isSuccess, score)
@@ -19,12 +19,14 @@ var timeCounter
 var beatCounter = 0
 var currentSpeedMultiplier
 
+
 var CurrentQuestionIndex
 var CurrentQuestion: Question
 var mainUIManager
 var healthCounter
 var score
 var isDead
+var BeatActionQueue: Array
 
 var isDuringWrongOrCorrectAnim = false
 
@@ -59,7 +61,7 @@ func NextTutorialQuestion():
 	
 	currentSpeedMultiplier = 1 + SpeedMultiplier * CurrentQuestionIndex
 	emit_signal("NewQuestionShown", currentSpeedMultiplier)
-	beatCounter = 0
+	# beatCounter = 0
 	targetInterval = 60.0 / (DefaultBPM * currentSpeedMultiplier) 
 	timeCounter = targetInterval
 
@@ -98,12 +100,16 @@ func Die():
 	emit_signal("GameEnd", false, score)
 	
 
-func _process(delta):
-	if (beatCounter > LastBeatIndex):
-		return
+func Beat():
+	print("Beat")
+	emit_signal("BeatPlayed")
 	
-	timeCounter += delta
-	if timeCounter >= targetInterval:
-		emit_signal("BeatPlayed", beatCounter)
-		beatCounter += 1
-		timeCounter -= targetInterval
+#func _process(delta):
+#	if (0 > LastBeatIndex):
+#		return
+#
+#	timeCounter += delta
+#	if timeCounter >= targetInterval:
+#		emit_signal("BeatPlayed", beatCounter)
+#		beatCounter += 1
+#		timeCounter -= targetInterval

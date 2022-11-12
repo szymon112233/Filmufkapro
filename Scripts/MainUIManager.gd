@@ -10,6 +10,7 @@ var currentQuestion
 
 const EndGameString = "%s \n Score: %s"
 var originalOptionUIColor
+var beatIndex
 
 func _ready():
 	originalOptionUIColor = (get_node(PathToOption1).get_node("ColorRect") as ColorRect).color
@@ -37,9 +38,11 @@ func SetupNewQuestion(question: Question):
 	get_node(PathToQuestionLabel2).hide()
 	get_node(PathToOption1).hide()
 	get_node(PathToOption2).hide()
+	
+	beatIndex = 0
 
 
-func _on_QuizManager_BeatPlayed(beatIndex):
+func _on_QuizManager_BeatPlayed():
 	print(beatIndex)
 	
 	match beatIndex:
@@ -65,6 +68,7 @@ func _on_QuizManager_BeatPlayed(beatIndex):
 			get_node(PathToOption1).show()
 		5:
 			get_node(PathToOption2).show()
+	beatIndex += 1
 
 
 func _on_QuizManager_AnwserPut(isCorrect, isLeft):

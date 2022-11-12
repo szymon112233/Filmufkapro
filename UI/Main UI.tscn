@@ -112,17 +112,6 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="LabelScore" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Score:"
-
-[node name="LabelScoreValue" type="Label" parent="."]
-margin_left = 40.0
-margin_right = 56.0
-margin_bottom = 14.0
-text = "30"
-
 [node name="Healthbar UI" parent="." instance=ExtResource( 4 )]
 anchor_left = 1.0
 anchor_bottom = 0.0
@@ -182,10 +171,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -440.5
-margin_top = -201.5
-margin_right = 440.5
-margin_bottom = 201.5
+margin_left = -442.0
+margin_top = -289.5
+margin_right = 442.0
+margin_bottom = 289.5
 custom_fonts/font = SubResource( 4 )
 text = "You Loose!
 Score: 69"
