@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Question.gd" type="Script" id=1]
+[ext_resource path="res://Choices/Done/1TrillionLionsChoice.tres" type="Resource" id=2]
+[ext_resource path="res://Choices/Done/SunChoice.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+QuestionContent = "What is stronger?"
+Choice1Valid = false
+Choice2Valid = true
+Choice1 = ExtResource( 2 )
+Choice2 = ExtResource( 3 )
