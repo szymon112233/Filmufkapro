@@ -62,3 +62,13 @@ func _on_QuizManager_AnwserPut(isCorrect):
 		$CorrectAnimPlayer.play("CorrectAnim")
 	else:
 		$CorrectAnimPlayer.play("WrongAnim")
+
+
+func _on_QuizManager_HealthChanged(health):
+	var healthUi = $"Healthbar UI" as HealthUI
+	healthUi.SetHealth(health)
+	
+
+
+func _on_QuizManager_GameEnd(isSuccess, score):
+	pass # Replace with function body.
