@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Textures/skateboarding-01.png" type="Texture" id=1]
+[ext_resource path="res://UI/Figerona-VF.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
 
 [node name="Option UI" type="Control"]
 anchor_right = 1.0
@@ -18,10 +23,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -256.0
-margin_top = -256.0
+margin_top = -279.0
 margin_right = 256.0
-margin_bottom = 256.0
+margin_bottom = 233.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 256, 256 )
 texture = ExtResource( 1 )
 stretch_mode = 1
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = 129.0
+margin_right = 111.0
+margin_bottom = 169.0
+custom_fonts/font = SubResource( 1 )
+text = "lorem ipsum"
+align = 1
+valign = 1
