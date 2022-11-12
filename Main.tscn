@@ -17,4 +17,6 @@ PathToMainUI = NodePath("../Main UI")
 
 [connection signal="AnwserPut" from="QuizManager" to="Main UI" method="_on_QuizManager_AnwserPut"]
 [connection signal="BeatPlayed" from="QuizManager" to="Main UI" method="_on_QuizManager_BeatPlayed"]
+[connection signal="GameEnd" from="QuizManager" to="Main UI" method="_on_QuizManager_GameEnd"]
+[connection signal="HealthChanged" from="QuizManager" to="Main UI" method="_on_QuizManager_HealthChanged"]
 [connection signal="NewQuestionShown" from="QuizManager" to="AudioManager" method="_on_QuizManager_NewQuestionShown"]

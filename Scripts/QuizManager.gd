@@ -9,6 +9,8 @@ export(NodePath) var PathToMainUI
 signal NewQuestionShown(questionIndex)
 signal BeatPlayed(beatIndex)
 signal AnwserPut(isCorrect)
+signal HealthChanged(health)
+signal GameEnd(isSuccess, score)
 
 const DefaultBPM = 90.0
 const LastBeatIndex = 12 #Last beat is "Game over" ping
@@ -20,12 +22,16 @@ var currentSpeedMultiplier
 var CurrentQuestionIndex
 var CurrentQuestion: Question
 var mainUIManager
+var healthCounter
+var score
 
 var isDuringWrongOrCorrectAnim = false
 
 func _ready():
 	mainUIManager = get_node(PathToMainUI) as MainUIManager
-	CurrentQuestionIndex = -1;
+	CurrentQuestionIndex = -1
+	healthCounter = 3
+	score = 0
 	NextTutorialQuestion()
 
 func _input(event):
@@ -61,6 +67,12 @@ func MakeChoice(isLeft: bool):
 func Anwser(isCorrect: bool):
 	print(isCorrect)
 	emit_signal("AnwserPut", isCorrect)
+	if isCorrect:
+		score += 1
+	else:
+		healthCounter -= 1
+		emit_signal("HealthChanged", healthCounter)
+		
 	
 	isDuringWrongOrCorrectAnim = true
 	# Hardcoded!
@@ -70,7 +82,10 @@ func Anwser(isCorrect: bool):
 	NextTutorialQuestion()
 	
 func Finish():
-	print("Koniec")
+	emit_signal("GameEnd", true, score)
+	
+func Die():
+	emit_signal("GameEnd", false, score)
 
 func _process(delta):
 	if (beatCounter > LastBeatIndex):

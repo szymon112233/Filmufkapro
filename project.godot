@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/Choice.gd"
 }, {
 "base": "Node",
+"class": "HealthUI",
+"language": "GDScript",
+"path": "res://Scripts/HealthUI.gd"
+}, {
+"base": "Node",
 "class": "MainUIManager",
 "language": "GDScript",
 "path": "res://Scripts/MainUIManager.gd"
@@ -37,6 +42,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AudioManager": "",
 "Choice": "",
+"HealthUI": "",
 "MainUIManager": "",
 "Question": "",
 "QuizManager": ""
@@ -46,6 +52,7 @@ _global_script_class_icons={
 
 config/name="Filmufkapro"
 run/main_scene="res://Main.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
 [display]

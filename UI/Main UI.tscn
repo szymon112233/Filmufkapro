@@ -162,3 +162,7 @@ valign = 1
 [node name="CorrectAnimPlayer" type="AnimationPlayer" parent="."]
 anims/CorrectAnim = ExtResource( 5 )
 anims/WrongAnim = SubResource( 3 )
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
