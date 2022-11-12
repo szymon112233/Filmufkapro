@@ -14,8 +14,19 @@ func SetupNewQuestion(question: Question):
 	
 	var option2Image = get_node(PathToOption2).get_node("ColorRect/TextureRect") as TextureRect
 	option2Image.texture = question.Choice2.Icon
+	
+	get_node(PathToQuestionLabel).hide()
+	get_node(PathToOption1).hide()
+	get_node(PathToOption2).hide()
 
 
 func _on_QuizManager_BeatPlayed(beatIndex):
-	# Show UI content here
 	print(beatIndex)
+	
+	match beatIndex:
+		0:
+			get_node(PathToQuestionLabel).show()
+		4:
+			get_node(PathToOption1).show()
+		5:
+			get_node(PathToOption2).show()
