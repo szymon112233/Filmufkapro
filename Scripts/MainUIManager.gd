@@ -53,3 +53,10 @@ func _on_QuizManager_BeatPlayed(beatIndex):
 			get_node(PathToOption1).show()
 		5:
 			get_node(PathToOption2).show()
+
+
+func _on_QuizManager_AnwserPut(isCorrect):
+	if isCorrect:
+		$CorrectAnimPlayer.play("CorrectAnim")
+	else:
+		$CorrectAnimPlayer.play("WrongAnim")

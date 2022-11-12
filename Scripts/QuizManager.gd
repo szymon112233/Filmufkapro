@@ -8,6 +8,7 @@ export(NodePath) var PathToMainUI
 
 signal NewQuestionShown
 signal BeatPlayed(beatIndex)
+signal AnwserPut(isCorrect)
 
 const DefaultBPM = 90.0
 const LastBeatIndex = 12 #Last beat is "Game over" ping
@@ -49,6 +50,7 @@ func MakeChoice(isLeft: bool):
 		
 func Anwser(isCorrect: bool):
 	print(isCorrect)
+	emit_signal("AnwserPut", isCorrect)
 	NextTutorialQuestion()
 	
 func Finish():

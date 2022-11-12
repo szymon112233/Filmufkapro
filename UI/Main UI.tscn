@@ -1,13 +1,58 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/Option UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Figerona-VF.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/MainUIManager.gd" type="Script" id=3]
 [ext_resource path="res://UI/Healthbar UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/CorrectAnim.tres" type="Animation" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "WrongAnim"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("WrongLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Wrong!" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WrongLabel:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.4, 2 ),
+"transitions": PoolRealArray( 1, 0.0544094, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.952941, 0.0666667, 0.0666667, 0 ), Color( 0.952941, 0.0666667, 0.0666667, 1 ), Color( 0.952941, 0.0666667, 0.0666667, 1 ), Color( 0.952941, 0.0666667, 0.0666667, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WrongLabel:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 0.153893 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
 
 [node name="Main UI" type="Control"]
 anchor_right = 1.0
@@ -22,20 +67,24 @@ PathToOption2 = NodePath("HBoxContainer/Option 2 UI")
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 10.0
 margin_top = -344.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 160
 
 [node name="Option 1 UI" parent="HBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 638.0
-margin_bottom = 344.0
+margin_right = 550.0
+margin_bottom = 334.0
 
 [node name="Option 2 UI" parent="HBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 642.0
-margin_right = 1280.0
-margin_bottom = 344.0
+margin_left = 710.0
+margin_right = 1260.0
+margin_bottom = 334.0
 
 [node name="Question Text 1" type="Label" parent="."]
 anchor_right = 1.0
@@ -73,5 +122,43 @@ text = "30"
 [node name="Healthbar UI" parent="." instance=ExtResource( 4 )]
 anchor_left = 1.0
 anchor_bottom = 0.0
-margin_left = -1280.0
-margin_bottom = 720.0
+margin_left = -1273.0
+margin_top = 1.0
+margin_right = 7.0
+margin_bottom = 721.0
+
+[node name="WrongLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -50.0
+margin_right = 199.0
+margin_bottom = 50.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 170.5, 50 )
+custom_colors/font_color = Color( 0.952941, 0.0666667, 0.0666667, 0 )
+custom_fonts/font = SubResource( 2 )
+text = "Wrong!"
+align = 1
+valign = 1
+
+[node name="CorrectLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -50.0
+margin_right = 199.0
+margin_bottom = 50.0002
+custom_colors/font_color = Color( 0.266667, 1, 0.0313726, 0 )
+custom_fonts/font = SubResource( 2 )
+text = "Correct!"
+align = 1
+valign = 1
+
+[node name="CorrectAnimPlayer" type="AnimationPlayer" parent="."]
+anims/CorrectAnim = ExtResource( 5 )
+anims/WrongAnim = SubResource( 3 )
