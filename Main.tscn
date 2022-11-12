@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/Main UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://QuizManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Questions/WhatIsWhite.tres" type="Resource" id=3]
+[ext_resource path="res://Questions/WhatIsFast.tres" type="Resource" id=4]
+[ext_resource path="res://Questions/WhatIsCute.tres" type="Resource" id=5]
+[ext_resource path="res://Questions/WhatIsGood.tres" type="Resource" id=6]
 
 [node name="Main" type="Node2D"]
 
 [node name="QuizManager" parent="." instance=ExtResource( 2 )]
+AllQuestions = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ) ]
+TutorialQuestionsQueue = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ) ]
 PathToMainUI = NodePath("../Main UI")
 
 [node name="Main UI" parent="." instance=ExtResource( 1 )]
