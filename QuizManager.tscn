@@ -22,3 +22,4 @@
 script = ExtResource( 1 )
 AllQuestions = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
 TutorialQuestionsQueue = [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ) ]
+SpeedMultiplier = 0.05

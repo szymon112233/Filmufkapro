@@ -3,18 +3,19 @@ class_name QuizManager
 
 export(Array, Resource) var AllQuestions
 export(Array, Resource) var TutorialQuestionsQueue
-
+export(float) var SpeedMultiplier
 export(NodePath) var PathToMainUI
 
-signal NewQuestionShown
+signal NewQuestionShown(questionIndex)
 signal BeatPlayed(beatIndex)
 signal AnwserPut(isCorrect)
 
 const DefaultBPM = 90.0
 const LastBeatIndex = 12 #Last beat is "Game over" ping
-var targetInterval = 60.0 / DefaultBPM
-var timeCounter = targetInterval
+var targetInterval
+var timeCounter
 var beatCounter = 0
+var currentSpeedMultiplier
 
 var CurrentQuestionIndex
 var CurrentQuestion: Question
@@ -43,8 +44,11 @@ func NextTutorialQuestion():
 	CurrentQuestionIndex += 1
 	CurrentQuestion = (TutorialQuestionsQueue[CurrentQuestionIndex] as Question)
 	mainUIManager.SetupNewQuestion(CurrentQuestion)
-	emit_signal("NewQuestionShown")
+	
+	currentSpeedMultiplier = 1 + SpeedMultiplier * CurrentQuestionIndex
+	emit_signal("NewQuestionShown", currentSpeedMultiplier)
 	beatCounter = 0
+	targetInterval = 60.0 / (DefaultBPM * currentSpeedMultiplier) 
 	timeCounter = targetInterval
 
 func MakeChoice(isLeft: bool):
