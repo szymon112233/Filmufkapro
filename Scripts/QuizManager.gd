@@ -52,6 +52,7 @@ func MakeChoice(isLeft: bool):
 func Anwser(isCorrect: bool):
 	print(isCorrect)
 	emit_signal("AnwserPut", isCorrect)
+	#yield(get_tree().create_timer(2.0), "timeout")
 	NextTutorialQuestion()
 	
 func Finish():
