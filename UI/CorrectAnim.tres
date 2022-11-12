@@ -4,26 +4,38 @@
 resource_name = "ResultAnim"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("CorrectLabel:rect_position")
+tracks/0/path = NodePath("CorrectLabel:custom_colors/font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.8, 1.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 441, 600 ), Vector2( 441, 310 ), Vector2( 441, 305 ), Vector2( 441, 310 ) ]
+"values": [ Color( 0.266667, 1, 0.0313726, 0 ), Color( 0.266667, 1, 0.0313726, 1 ), Color( 0.266667, 1, 0.0313726, 1 ), Color( 0.266667, 1, 0.0313726, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CorrectLabel:custom_colors/font_color")
+tracks/1/path = NodePath("CorrectLabel:margin_top")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8, 1.4, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.378929, 1 ),
 "update": 0,
-"values": [ Color( 0.266667, 1, 0.0313726, 0 ), Color( 0.266667, 1, 0.0313726, 1 ), Color( 0.266667, 1, 0.0313726, 1 ), Color( 0.266667, 1, 0.0313726, 0 ) ]
+"values": [ 240.0, -50, -55, -50 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CorrectLabel:margin_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.353554, 1 ),
+"update": 0,
+"values": [ 340.0, 50, 45, 50 ]
 }
