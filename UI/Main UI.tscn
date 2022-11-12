@@ -13,7 +13,8 @@ font_data = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
-PathToQuestionLabel = NodePath("Question Text")
+PathToQuestionLabel1 = NodePath("Question Text 1")
+PathToQuestionLabel2 = NodePath("Question Text 2")
 PathToOption1 = NodePath("HBoxContainer/Option 1 UI")
 PathToOption2 = NodePath("HBoxContainer/Option 2 UI")
 
@@ -36,14 +37,24 @@ margin_left = 642.0
 margin_right = 1280.0
 margin_bottom = 344.0
 
-[node name="Question Text" type="Label" parent="."]
+[node name="Question Text 1" type="Label" parent="."]
 anchor_right = 1.0
-margin_bottom = 528.0
+margin_top = 50.0
+margin_bottom = 400.0
 custom_fonts/font = SubResource( 1 )
-text = "What is real?
- "
+text = "What is"
 align = 1
-valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Question Text 2" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 200.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 1 )
+text = "real?"
+align = 1
 __meta__ = {
 "_editor_description_": ""
 }
