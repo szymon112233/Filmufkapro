@@ -14,11 +14,13 @@ func SetupNewQuestion(question: Question):
 	var option1Image = get_node(PathToOption1).get_node("ColorRect/TextureRect") as TextureRect
 	var option1Label = get_node(PathToOption1).get_node("ColorRect/Label") as Label
 	option1Image.texture = question.Choice1.Icon
+	option1Image.self_modulate = question.Choice1.IconColor
 	option1Label.text = question.Choice1.Name
 	
 	var option2Image = get_node(PathToOption2).get_node("ColorRect/TextureRect") as TextureRect
 	var option2Label = get_node(PathToOption2).get_node("ColorRect/Label") as Label
 	option2Image.texture = question.Choice2.Icon
+	option2Image.self_modulate = question.Choice2.IconColor
 	option2Label.text = question.Choice2.Name
 	
 	get_node(PathToQuestionLabel1).hide()
