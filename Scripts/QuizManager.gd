@@ -6,6 +6,8 @@ export(Array, Resource) var TutorialQuestionsQueue
 
 export(NodePath) var PathToMainUI
 
+signal NewQuestionShown
+
 var CurrentQuestionIndex
 var CurrentQuestion: Question
 var mainUIManager
@@ -28,6 +30,7 @@ func NextTutorialQuestion():
 	CurrentQuestionIndex += 1
 	CurrentQuestion = (TutorialQuestionsQueue[CurrentQuestionIndex] as Question)
 	mainUIManager.SetupNewQuestion(CurrentQuestion)
+	emit_signal("NewQuestionShown")
 
 func MakeChoice(isLeft: bool):
 	if isLeft:
