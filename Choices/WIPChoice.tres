@@ -1,9 +1,10 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Choice.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Textures/cross-mark.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-Name = "Ikonka Gotodtka!"
+Name = "ERROR"
 Icon = ExtResource( 2 )
+IconColor = Color( 1, 1, 1, 1 )

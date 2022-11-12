@@ -1,12 +1,12 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Question.gd" type="Script" id=1]
-[ext_resource path="res://Choices/GodocikChoice.tres" type="Resource" id=2]
-[ext_resource path="res://Choices/TurtleChoice.tres" type="Resource" id=3]
+[ext_resource path="res://Choices/Done/MetroChoice.tres" type="Resource" id=2]
+[ext_resource path="res://Choices/Done/HelicopterChoice.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
-QuestionContent = "What is good?"
+QuestionContent = "What is underground?"
 Choice1Valid = false
 Choice2Valid = true
 Choice1 = ExtResource( 3 )

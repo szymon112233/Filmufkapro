@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 Name = "Turtle"
 Icon = ExtResource( 2 )
+IconColor = Color( 1, 1, 1, 1 )
