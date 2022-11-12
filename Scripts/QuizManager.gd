@@ -20,12 +20,17 @@ var CurrentQuestionIndex
 var CurrentQuestion: Question
 var mainUIManager
 
+var isDuringWrongOrCorrectAnim = false
+
 func _ready():
 	mainUIManager = get_node(PathToMainUI) as MainUIManager
 	CurrentQuestionIndex = -1;
 	NextTutorialQuestion()
 
 func _input(event):
+	if isDuringWrongOrCorrectAnim:
+		return
+	
 	if event.is_action_released("left_option"):
 		MakeChoice(true)
 	elif event.is_action_released("right_option"):
@@ -52,7 +57,12 @@ func MakeChoice(isLeft: bool):
 func Anwser(isCorrect: bool):
 	print(isCorrect)
 	emit_signal("AnwserPut", isCorrect)
-	#yield(get_tree().create_timer(2.0), "timeout")
+	
+	isDuringWrongOrCorrectAnim = true
+	# Hardcoded!
+	yield(get_tree().create_timer(2.0), "timeout")
+	isDuringWrongOrCorrectAnim = false
+	
 	NextTutorialQuestion()
 	
 func Finish():
