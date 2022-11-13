@@ -13,11 +13,7 @@ signal AnwserPut(isCorrect, isLeft, currentSpeedMultiplier)
 signal HealthChanged(health)
 signal GameEnd(isSuccess, score)
 
-const DefaultBPM = 90.0
 const LastBeatIndex = 12 #Last beat is "Game over" ping
-var targetInterval
-var timeCounter
-var beatCounter = 0
 var currentSpeedMultiplier
 
 
@@ -26,7 +22,7 @@ var CurrentQuestion: Question
 var mainUIManager
 var healthCounter
 var score
-var isDead
+var isDone
 var BeatActionQueue: Array
 
 var isDuringWrongOrCorrectAnim = false
@@ -39,12 +35,11 @@ func _ready():
 	NextTutorialQuestion()
 
 func _input(event):	
-	if event.is_action_released("ui_cancel") && isDead:
+	if event.is_action_released("ui_cancel") && isDone:
 		get_tree().reload_current_scene()
 		return
 		
-
-	if isDead || isDuringWrongOrCorrectAnim:
+	if isDone || isDuringWrongOrCorrectAnim:
 		return
 	
 	if event.is_action_released("left_option"):
@@ -62,9 +57,7 @@ func NextTutorialQuestion():
 	
 	currentSpeedMultiplier = 1 + SpeedMultiplier * CurrentQuestionIndex
 	emit_signal("NewQuestionShown", currentSpeedMultiplier)
-	# beatCounter = 0
-	targetInterval = 60.0 / (DefaultBPM * currentSpeedMultiplier) 
-	timeCounter = targetInterval
+
 
 func MakeChoice(isLeft: bool):
 	if isLeft:
@@ -94,23 +87,14 @@ func Anwser(isCorrect: bool, isLeft: bool):
 	NextTutorialQuestion()
 	
 func Finish():
+	isDone = true
 	emit_signal("GameEnd", true, score)
 	
 func Die():
-	isDead = true
+	isDone = true
 	emit_signal("GameEnd", false, score)
 	
 
 func Beat():
 	print("Beat")
 	emit_signal("BeatPlayed")
-	
-#func _process(delta):
-#	if (0 > LastBeatIndex):
-#		return
-#
-#	timeCounter += delta
-#	if timeCounter >= targetInterval:
-#		emit_signal("BeatPlayed", beatCounter)
-#		beatCounter += 1
-#		timeCounter -= targetInterval
