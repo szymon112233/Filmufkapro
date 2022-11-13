@@ -71,7 +71,7 @@ func _on_QuizManager_BeatPlayed():
 	beatIndex += 1
 
 
-func _on_QuizManager_AnwserPut(isCorrect, isLeft):
+func _on_QuizManager_AnwserPut(isCorrect, isLeft, currentSpeedMultiplier):
 	var chosenChoicePath
 	var colorToSet
 	
@@ -79,6 +79,8 @@ func _on_QuizManager_AnwserPut(isCorrect, isLeft):
 		chosenChoicePath = PathToOption1
 	else:
 		chosenChoicePath = PathToOption2
+	
+	$CorrectAnimPlayer.playback_speed = currentSpeedMultiplier
 	
 	if isCorrect:
 		$CorrectAnimPlayer.play("CorrectAnim")
