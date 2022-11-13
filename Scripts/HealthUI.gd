@@ -15,8 +15,12 @@ func _ready():
 	pass # Replace with function body.
 
 func SetHealth(health):
-	if health >= MaxHealth || health <= 0:
+	if health >= MaxHealth || health < 0:
 		return
+	if health == 0:
+		$HPImage1.visible = false
+		$HPImage2.visible = false
+		$HPImage3.visible = false
 	if health == 1:
 		$HPImage1.visible = true
 		$HPImage2.visible = false
@@ -25,7 +29,7 @@ func SetHealth(health):
 		$HPImage1.visible = true
 		$HPImage2.visible = true
 		$HPImage3.visible = false
-	elif health == 2:
+	elif health == 3:
 		$HPImage1.visible = true
 		$HPImage2.visible = true
 		$HPImage3.visible = true
