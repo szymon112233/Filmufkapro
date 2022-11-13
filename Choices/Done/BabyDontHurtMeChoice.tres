@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource( 1 )
-Name = "Baby don't hurt me"
+Name = "Baby don't hurt me..."
 Icon = ExtResource( 2 )
 IconColor = Color( 1, 1, 1, 1 )

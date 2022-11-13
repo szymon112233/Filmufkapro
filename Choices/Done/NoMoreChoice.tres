@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource( 1 )
-Name = "No more"
+Name = "No more..."
 Icon = ExtResource( 2 )
 IconColor = Color( 1, 1, 1, 1 )
