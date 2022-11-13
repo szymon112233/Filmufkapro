@@ -4,6 +4,7 @@ class_name QuizManager
 export(Array, Resource) var AllQuestions
 export(Array, Resource) var TutorialQuestionsQueue
 export(float) var SpeedMultiplier
+export(int) var SpeedMultiplierLimiterIndex
 export(NodePath) var PathToMainUI
 
 
@@ -61,7 +62,9 @@ func NextTutorialQuestion():
 	CurrentQuestion = (TutorialQuestionsQueue[CurrentQuestionIndex] as Question)
 	mainUIManager.SetupNewQuestion(CurrentQuestion)
 	
-	currentSpeedMultiplier = 1 + SpeedMultiplier * CurrentQuestionIndex
+	if CurrentQuestionIndex < SpeedMultiplierLimiterIndex:
+		currentSpeedMultiplier = 1 + SpeedMultiplier * CurrentQuestionIndex
+		
 	emit_signal("NewQuestionShown", currentSpeedMultiplier)
 
 
