@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI/Option UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Figerona-VF.ttf" type="DynamicFontData" id=2]
@@ -56,6 +56,21 @@ tracks/2/keys = {
 
 [sub_resource type="DynamicFont" id=4]
 size = 160
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.133333, 0.333333, 0.333333, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
 font_data = ExtResource( 2 )
 
 [node name="Main UI" type="Control"]
@@ -160,6 +175,7 @@ anims/CorrectAnim = ExtResource( 5 )
 anims/WrongAnim = SubResource( 3 )
 
 [node name="EndGamePopup" type="PopupPanel" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -183,3 +199,87 @@ text = "You Loose!
 Score: 69"
 align = 1
 valign = 1
+
+[node name="StartGamePopup" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="Title Text 1" type="Label" parent="StartGamePopup"]
+anchor_right = 1.0
+margin_top = 50.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 1 )
+text = "What is"
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Title Text 2" type="Label" parent="StartGamePopup"]
+anchor_right = 1.0
+margin_top = 200.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 1 )
+text = "real?"
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Instruction" type="Label" parent="StartGamePopup"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -128.0
+custom_fonts/font = SubResource( 5 )
+text = "Press enter to start"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Instruction2" type="Label" parent="StartGamePopup"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -310.0
+margin_right = 2.0
+margin_bottom = -190.0
+custom_fonts/font = SubResource( 7 )
+text = "Use arrow keys to select correct anwser!"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Credit 1" type="Label" parent="StartGamePopup"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 255.0
+margin_bottom = 203.0
+custom_fonts/font = SubResource( 6 )
+text = "Szymon
+Piórkowski"
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Credit 2" type="Label" parent="StartGamePopup"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -255.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 203.0
+custom_fonts/font = SubResource( 6 )
+text = "Bartosz
+Stochel"
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}

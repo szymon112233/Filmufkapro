@@ -3,8 +3,8 @@ class_name AudioManager
 
 
 
-func _ready():
-	$"../AnimationPlayer".play("MainBeat")
+#func _ready():
+#	$"../AnimationPlayer".play("MainBeat")
 
 func _on_QuizManager_NewQuestionShown(currentSpeedMultiplier):
 	$"../AnimationPlayer".playback_speed = currentSpeedMultiplier
@@ -16,3 +16,6 @@ func _on_QuizManager_AnwserPut(isCorrect, isLeft, currentSpeedMultiplier):
 		$CorrectSound.play()
 	else:
 		$WrongSound.play()
+		
+func _on_QuizManager_GameStarted():
+	$"../AnimationPlayer".play("MainBeat")

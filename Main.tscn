@@ -29,5 +29,7 @@ volume_db = 0.456
 [connection signal="AnwserPut" from="QuizManager" to="AudioManager" method="_on_QuizManager_AnwserPut"]
 [connection signal="BeatPlayed" from="QuizManager" to="Main UI" method="_on_QuizManager_BeatPlayed"]
 [connection signal="GameEnd" from="QuizManager" to="Main UI" method="_on_QuizManager_GameEnd"]
+[connection signal="GameStarted" from="QuizManager" to="Main UI" method="_on_QuizManager_GameStarted"]
+[connection signal="GameStarted" from="QuizManager" to="AudioManager" method="_on_QuizManager_GameStarted"]
 [connection signal="HealthChanged" from="QuizManager" to="Main UI" method="_on_QuizManager_HealthChanged"]
 [connection signal="NewQuestionShown" from="QuizManager" to="AudioManager" method="_on_QuizManager_NewQuestionShown"]

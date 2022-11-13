@@ -104,3 +104,7 @@ func _on_QuizManager_GameEnd(isSuccess, score):
 	else:
 		$EndGamePopup/EndGameLabel.text = EndGameString % ["You loose!", score]
 	$EndGamePopup.show()
+
+
+func _on_QuizManager_GameStarted():
+	$StartGamePopup.hide()
