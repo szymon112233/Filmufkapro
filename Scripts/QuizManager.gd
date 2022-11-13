@@ -12,6 +12,7 @@ signal BeatPlayed()
 signal AnwserPut(isCorrect, isLeft, currentSpeedMultiplier)
 signal HealthChanged(health)
 signal GameEnd(isSuccess, score)
+signal GameStarted()
 
 const LastBeatIndex = 12 #Last beat is "Game over" ping
 var currentSpeedMultiplier
@@ -23,7 +24,7 @@ var mainUIManager
 var healthCounter
 var score
 var isDone
-var BeatActionQueue: Array
+var isStarted = false
 
 var isDuringWrongOrCorrectAnim = false
 
@@ -32,9 +33,14 @@ func _ready():
 	CurrentQuestionIndex = -1
 	healthCounter = 3
 	score = 0
-	NextTutorialQuestion()
 
 func _input(event):	
+	if !isStarted && event.is_action_released("ui_accept"):
+		Start()
+		
+	if !isStarted:
+		return
+	
 	if event.is_action_released("ui_cancel") && isDone:
 		get_tree().reload_current_scene()
 		return
@@ -86,6 +92,12 @@ func Anwser(isCorrect: bool, isLeft: bool):
 	
 	NextTutorialQuestion()
 	
+func Start():
+	isStarted = true
+	emit_signal("GameStarted")
+	NextTutorialQuestion()
+
+	
 func Finish():
 	isDone = true
 	emit_signal("GameEnd", true, score)
@@ -97,4 +109,5 @@ func Die():
 
 func Beat():
 	print("Beat")
-	emit_signal("BeatPlayed")
+	if (isStarted):
+		emit_signal("BeatPlayed")
