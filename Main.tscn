@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 [node name="Main UI" parent="." instance=ExtResource( 1 )]
 
 [node name="QuizManager" parent="." instance=ExtResource( 2 )]
-SpeedMultiplier = 0.3
+SpeedMultiplierLimiterIndex = 15
 PathToMainUI = NodePath("../Main UI")
 
 [node name="AudioManager" parent="." instance=ExtResource( 4 )]

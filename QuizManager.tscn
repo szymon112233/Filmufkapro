@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/QuizManager.gd" type="Script" id=1]
 [ext_resource path="res://Questions/Done/Normal/WhatIsCute.tres" type="Resource" id=2]
@@ -25,9 +25,11 @@
 [ext_resource path="res://Questions/Done/Normal/WhatIsLighter.tres" type="Resource" id=23]
 [ext_resource path="res://Questions/Done/Normal/WhatIsTall.tres" type="Resource" id=24]
 [ext_resource path="res://Questions/Done/Normal/WhatIsRound.tres" type="Resource" id=25]
+[ext_resource path="res://Questions/Done/Normal/WhatIsEgyptian.tres" type="Resource" id=26]
 
 [node name="QuizManager" type="Node"]
 script = ExtResource( 1 )
 AllQuestions = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
-TutorialQuestionsQueue = [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 11 ) ]
-SpeedMultiplier = 0.05
+TutorialQuestionsQueue = [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 11 ), ExtResource( 26 ) ]
+SpeedMultiplier = 0.3
+SpeedMultiplierLimiterIndex = 13

@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 2 )
-QuestionContent = "What is big?"
+QuestionContent = "What is round?"
 Choice1Valid = true
 Choice2Valid = false
 Choice1 = ExtResource( 1 )
