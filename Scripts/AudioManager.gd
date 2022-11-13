@@ -9,3 +9,10 @@ func _ready():
 func _on_QuizManager_NewQuestionShown(currentSpeedMultiplier):
 	$"../AnimationPlayer".playback_speed = currentSpeedMultiplier
 	$"../AudioStreamPlayer".pitch_scale = currentSpeedMultiplier
+
+
+func _on_QuizManager_AnwserPut(isCorrect, isLeft, currentSpeedMultiplier):
+	if isCorrect:
+		$CorrectSound.play()
+	else:
+		$WrongSound.play()
