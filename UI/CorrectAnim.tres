@@ -13,7 +13,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.8, 1.4, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.266667, 1, 0.0313726, 0 ), Color( 0.266667, 1, 0.0313726, 1 ), Color( 0.266667, 1, 0.0313726, 1 ), Color( 0.266667, 1, 0.0313726, 0 ) ]
+"values": [ Color( 0.266667, 1, 0.0313726, 0 ), Color( 0.215686, 0.662745, 0.0509804, 1 ), Color( 0.215686, 0.662745, 0.0509804, 1 ), Color( 0.266667, 1, 0.0313726, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CorrectLabel:margin_top")
